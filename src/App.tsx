@@ -1,9 +1,13 @@
-
 import { BrowserRouter as Router, Route, Routes, Navigate } from 'react-router-dom';
-import { lazy, Suspense } from 'react';
+import { lazy, Suspense, useEffect } from 'react';
 import { LanguageProvider } from './contexts/LanguageContext';
-import LoadingSpinner from './components/LoadingSpinner';
 import { portfolioItems } from './lib/portfolioData';
+import { Buffer } from 'buffer';
+
+// Polyfill Buffer for gray-matter
+if (typeof window !== 'undefined') {
+  window.Buffer = Buffer;
+}
 
 // Import core pages
 const Home = lazy(() => import('./pages/Home'));
@@ -15,19 +19,24 @@ const Portfolio = lazy(() => import('./pages/Portfolio'));
 const PortfolioItemPage = lazy(() => import('./components/PortfolioItemPage'));
 const BlogPage = lazy(() => import('./pages/BlogPage'));
 const BlogPostPage = lazy(() => import('./pages/BlogPostPage'));
-const CaseStudies = lazy(() => import('./pages/CaseStudies'));
 
 // Service pages
 const WebDesign = lazy(() => import('./pages/WebDesign'));
 const SeoService = lazy(() => import('./pages/SeoService'));
 const LocalSeo = lazy(() => import('./pages/LocalSeo'));
 const WebDevelopment = lazy(() => import('./pages/WebDevelopment'));
+const ServiceAreas = lazy(() => import('./pages/ServiceAreas'));
+const LocationPage = lazy(() => import('./pages/LocationPage'));
 
 function App() {
   return (
     <Router>
       <LanguageProvider>
-        <Suspense fallback={<LoadingSpinner />}>
+        <Suspense fallback={
+          <div className="min-h-screen flex items-center justify-center">
+            <div className="animate-pulse text-muted-foreground text-lg">Loading...</div>
+          </div>
+        }>
           <Routes>
             {/* Language-based routes */}
             <Route path="/:lang" element={<Home />} />
@@ -38,13 +47,14 @@ function App() {
             <Route path="/:lang/portfolio/:id" element={<PortfolioItemPage portfolioItems={portfolioItems} />} />
             <Route path="/:lang/blog" element={<BlogPage />} />
             <Route path="/:lang/blog/:slug" element={<BlogPostPage />} />
-            <Route path="/:lang/case-studies" element={<CaseStudies />} />
             
             {/* Service Pages */}
             <Route path="/:lang/web-design" element={<WebDesign />} />
             <Route path="/:lang/seo-services" element={<SeoService />} />
             <Route path="/:lang/local-seo" element={<LocalSeo />} />
             <Route path="/:lang/web-development-services" element={<WebDevelopment />} />
+            <Route path="/:lang/service-areas" element={<ServiceAreas />} />
+            <Route path="/:lang/:slug" element={<LocationPage />} />
             
             {/* Redirect from root to default language */}
             <Route path="/" element={<Navigate to="/en" replace />} />

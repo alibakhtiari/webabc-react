@@ -4,7 +4,7 @@ import { cn } from '@/lib/utils';
 import { Menu, X } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import Logo from './Logo';
-import { NavLink, ServicesDropdown } from './NavLinks';
+import { NavLink, ServicesDropdown, NavLinks } from './NavLinks';
 import MobileMenu from './MobileMenu';
 import { Button } from './ui/button';
 import ConsultationForm from './ConsultationForm';
@@ -52,14 +52,15 @@ const Navbar = () => {
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center gap-6">
-            <NavLink to={`/${language}`}>{t('common.home')}</NavLink>
+            <NavLink to="">{t('common.home')}</NavLink>
             <ServicesDropdown />
-            <NavLink to={`/${language}/portfolio`}>{t('common.portfolio')}</NavLink>
-            <NavLink to={`/${language}/case-studies`}>{t('common.caseStudies')}</NavLink>
-            <NavLink to={`/${language}/about`}>{t('common.about')}</NavLink>
-            <NavLink to={`/${language}/contact`}>{t('common.contact')}</NavLink>
+            <NavLinks />
+            <NavLink to="/portfolio">{t('common.portfolio')}</NavLink>
+            <NavLink to="/blog">{t('common.blog')}</NavLink>
+            <NavLink to="/about">{t('common.about')}</NavLink>
+            <NavLink to="/contact">{t('common.contact')}</NavLink>
             <LanguageSwitcher />
-            <Button 
+            <Button
               size="sm" 
               className="px-4 py-2 rounded-md"
               onClick={() => setConsultationOpen(true)}

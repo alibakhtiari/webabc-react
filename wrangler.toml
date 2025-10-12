@@ -1,7 +1,13 @@
-name = "webabc-react"
-compatibility_date = "2024-01-01"
+name = "webabc"
+compatibility_date = "2025-10-12"
+main = "src/worker.ts"
 
-# Add your worker configuration here. For example:
-# [[kv_namespaces]]
-# binding = "MY_KV"
-# id = "your-kv-namespace-id"
+
+[site]
+bucket = "./dist"
+
+#[pages]
+#build_output_dir = "./dist"
+
+#[build]
+#command = "npm run build"

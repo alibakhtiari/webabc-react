@@ -119,11 +119,21 @@ const MobileMenu = ({ isOpen, onClose }: MobileMenuProps) => {
   
                 <li>
                   <Link 
-                    to={`/${language}/case-studies`}
+                    to={`/${language}/service-areas`}
                     className="text-lg font-medium" 
                     onClick={onClose}
                   >
-                    {t('common.caseStudies')}
+                    {t('common.serviceAreas')}
+                  </Link>
+                </li>
+  
+                <li>
+                  <Link 
+                    to={`/${language}/blog`}
+                    className="text-lg font-medium" 
+                    onClick={onClose}
+                  >
+                    {t('common.blog')}
                   </Link>
                 </li>
   
