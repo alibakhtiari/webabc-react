@@ -86,17 +86,55 @@
   }
 }
 
-@layer base {
-  * {
-    @apply border-border;
-  }
-
-  body {
-    @apply bg-background text-foreground;
-    font-feature-settings: "rlig" 1, "calt" 1;
-  }
+/* Global font families based on HTML lang attribute */
+html:lang(en) {
+  font-family: 'Lato', system-ui, sans-serif;
 }
 
+html:lang(fa) {
+  font-family: 'Vazirmatn', sans-serif;
+}
+html:lang(fa) .lucide-arrow-right {transform: rotate(180deg);}
+
+html:lang(ar) {
+  font-family: 'Vazirmatn', sans-serif;
+}
+
+ #logoh{
+        fill: #2D59C3;
+        stroke: #2D59C3
+    }
+
+#logoh {
+    fill-opacity: 1;
+    stroke-width: 0;
+    stroke-dasharray: 100% 0;
+    animation: stroke-offset 3s ease-out
+}
+
+@keyframes stroke-offset {
+    0% {
+        fill-opacity: 0;
+        stroke-width: 0;
+        stroke-dasharray: 0 100%
+    }
+
+    25% {
+        stroke-width: 1px
+    }
+
+    50% {
+        fill-opacity: 0
+    }
+
+    75% {
+        stroke-width: 2px
+    }
+
+    100% {
+        stroke-width: 0
+    }
+}
 @layer utilities {
   .font-persian {
     font-family: 'Vazirmatn', sans-serif;

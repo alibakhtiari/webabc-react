@@ -2,6 +2,7 @@
 import React, { lazy, Suspense } from 'react';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
+import Breadcrumb from '@/components/Breadcrumb';
 import SEOHead from '@/components/SEOHead';
 import SchemaMarkup from '@/components/SchemaMarkup';
 import { createBreadcrumbSchema } from '@/lib/schema';
@@ -27,11 +28,11 @@ const TextareaSkeleton = () => (
 
 const Contact = () => {
   const { language, t, languageMeta } = useLanguage();
-  
+
   // Schema markup for Contact page
   const breadcrumbSchema = createBreadcrumbSchema([
-    { name: t('common.home'), item: `https://webabc.com/${language}` },
-    { name: t('common.contact'), item: `https://webabc.com/${language}/contact` }
+    { name: t('common.home'), item: `https://webabc.ir/${language}` },
+    { name: t('common.contact'), item: `https://webabc.ir/${language}/contact` }
   ]);
 
   const contactSchema = {
@@ -42,8 +43,8 @@ const Contact = () => {
     "mainEntity": {
       "@type": "Organization",
       "name": "WebABC",
-      "email": "info@webabc.com",
-      "telephone": language === 'en' ? "+98-21-12345678" : "۰۲۱-۱۲۳۴۵۶۷۸",
+      "email": "info@webabc.ir",
+      "telephone": language === 'en' ? "+989125811880" : "09125811880",
       "address": {
         "@type": "PostalAddress",
         "streetAddress": language === 'en' ? "123 Azadi St, Keshavarz Blvd" : language === 'ar' ? "شارع آزادي، بوليفارد كشاورز، المبنى ١٢٣" : "خیابان آزادی، بلوار کشاورز، پلاک ۱۲۳",
@@ -60,21 +61,24 @@ const Contact = () => {
   const inputDirection = languageMeta.direction === 'rtl' ? 'text-right' : '';
 
   return (
-    <div className="min-h-screen flex flex-col" dir={languageMeta.direction}>
-      <SEOHead 
-        title={t('contact.getInTouch')} 
+    <div className={`min-h-screen flex flex-col ${languageMeta.fontFamily}`}>
+      <SEOHead
+        title={t('contact.getInTouch')}
         description={language === 'en' ? "Contact WebABC team and get a free consultation in web design, SEO and digital marketing" : language === 'ar' ? "اتصل بفريق ويب أ ب ج واحصل على استشارة مجانية في تصميم الويب وتحسين محركات البحث والتسويق الرقمي" : "برای ارتباط با تیم وب آ ب ث و دریافت مشاوره رایگان در زمینه طراحی سایت، سئو و دیجیتال مارکتینگ با ما تماس بگیرید"}
         keywords={language === 'en' ? "contact WebABC, SEO consultation, web design consultation, WebABC contact number" : language === 'ar' ? "اتصل بويب أ ب ج، استشارة تحسين محركات البحث، استشارة تصميم الويب، رقم الاتصال بويب أ ب ج" : "تماس با وب آ ب ث، مشاوره سئو، مشاوره طراحی سایت، شماره تماس وب آ ب ث"}
       />
-      
+
       <SchemaMarkup schema={breadcrumbSchema} />
       <SchemaMarkup schema={contactSchema} />
-      
+
       <Navbar />
-      
+
       <main className="flex-1 max-w-4xl mx-auto mt-20 pb-12 px-4 sm:px-6 lg:px-8 w-full">
         <div className="space-y-12">
-          <h1 className="text-3xl font-bold text-center text-gray-800">{t('contact.getInTouch')}</h1>
+          <div className="text-center">
+            <Breadcrumb />
+            <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4 leading-[1.5]">{t('contact.getInTouch')}</h1>
+          </div>
 
           <div className="grid md:grid-cols-2 gap-8 md:gap-12">
             {/* Contact Form */}
@@ -86,7 +90,7 @@ const Contact = () => {
                     <Input className={inputDirection} placeholder={t('consultation.fullName')} />
                   </Suspense>
                 </div>
-                
+
                 <div>
                   <label className={`block text-sm font-medium text-gray-700 mb-2 ${textDirection}`}>{t('consultation.email')}</label>
                   <Suspense fallback={<InputSkeleton />}>
@@ -117,7 +121,7 @@ const Contact = () => {
                   <div>
                     <h3 className="font-medium text-gray-700">{t('contact.officeAddress')}</h3>
                     <p className="text-gray-600 leading-relaxed">
-                      {language === 'en' ? "123 Azadi St, Keshavarz Blvd" : language === 'ar' ? "شارع آزادي، بوليفارد كشاورز، المبنى ١٢٣" : "خیابان آزادی، بلوار کشاورز، پلاک ۱۲۳"}<br/>
+                      {language === 'en' ? "123 Azadi St, Keshavarz Blvd" : language === 'ar' ? "شارع آزادي، بوليفارد كشاورز، المبنى ١٢٣" : "خیابان آزادی، بلوار کشاورز، پلاک ۱۲۳"}<br />
                       {language === 'en' ? "Tehran, Iran" : language === 'ar' ? "طهران، إيران" : "تهران، ایران"}
                     </p>
                   </div>
@@ -129,7 +133,7 @@ const Contact = () => {
 
                   <div>
                     <h3 className="font-medium text-gray-700">{t('contact.emailAddress')}</h3>
-                    <p className="text-gray-600">info@webabc.com</p>
+                    <p className="text-gray-600">info@webabc.ir</p>
                   </div>
                 </div>
               </div>
