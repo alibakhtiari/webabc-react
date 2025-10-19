@@ -53,9 +53,9 @@ const AboutSection = () => {
           <div className="animate-on-scroll opacity-0 transition-all duration-500">
             <div className="neo-morphism rounded-2xl p-3 relative">
               <div className="aspect-square rounded-xl overflow-hidden">
-                <img 
-                  src={teamImage} 
-                  alt="WebABC Team" 
+                <img
+                  src="/assets/team-webabc.jpg"
+                  alt="WebABC Team"
                   className="w-full h-full object-cover"
                 />
               </div>

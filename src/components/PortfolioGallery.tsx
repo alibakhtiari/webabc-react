@@ -1,8 +1,8 @@
 
 import React, { useState, useEffect, useRef } from 'react';
-import { Link } from 'react-router-dom';
 import { cn } from '@/lib/utils';
-import OptimizedImage from './OptimizedImage';
+import NextImage from './NextImage';
+import UniversalLink from './Link';
 import { useLanguage } from '@/contexts/LanguageContext';
 
 interface PortfolioItem {
@@ -110,15 +110,15 @@ const PortfolioGallery = ({ items, className }: PortfolioGalleryProps) => {
                 key={item.id}
                 className="animate-fade-up"
               >
-                <Link 
-                  to={`/portfolio/${item.id}`} 
+                <UniversalLink
+                  href={`/portfolio/${item.id}`}
                   className="group block"
                 >
                   <div className="rounded-xl overflow-hidden bg-white shadow-md hover:shadow-xl transition-all duration-300 h-full">
                     <div className="relative aspect-video overflow-hidden">
-                      <OptimizedImage 
-                        src={item.image} 
-                        alt={item.title} 
+                      <NextImage
+                        src={item.image}
+                        alt={item.title}
                         className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                         width={600}
                         height={338}
@@ -136,7 +136,7 @@ const PortfolioGallery = ({ items, className }: PortfolioGalleryProps) => {
                       <p className="text-gray-600 line-clamp-2">{item.description}</p>
                     </div>
                   </div>
-                </Link>
+                </UniversalLink>
               </div>
             ))
           ) : (

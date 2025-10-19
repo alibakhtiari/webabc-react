@@ -1,9 +1,9 @@
-// src/worker.ts
-import { getAssetFromKV } from '@cloudflare/kv-asset-handler';
+// src/worker.ts - Cloudflare Pages worker for static hosting
+// import { getAssetFromKV } from '@cloudflare/kv-asset-handler'; // Uncomment when deploying to Cloudflare Pages
 
 // This part is boilerplate from the Cloudflare Pages template
 declare const __STATIC_CONTENT_MANIFEST: string;
-const assetManifest = JSON.parse(__STATIC_content_MANIFEST);
+const assetManifest = JSON.parse(__STATIC_CONTENT_MANIFEST);
 
 // Define the country-to-language mappings
 const persianCountries = new Set(['IR', 'AF', 'TJ']); // Iran, Afghanistan, Tajikistan
@@ -50,7 +50,9 @@ export default {
     }
     
     // --- 3. Serve Static Assets ---
-    // If no redirects occurred, serve the static file from KV storage.
+    // Commented out for Next.js deployment - Next.js handles static asset serving
+    // Uncomment and install @cloudflare/kv-asset-handler when deploying to Cloudflare Pages
+    /*
     try {
       return await getAssetFromKV(
         {
@@ -86,5 +88,12 @@ export default {
         });
       }
     }
+    */
+
+    // Placeholder response - Next.js handles routing and static assets
+    return new Response('Worker operational - Next.js handles asset serving', {
+      status: 200,
+      headers: { 'Content-Type': 'text/plain' },
+    });
   },
 };

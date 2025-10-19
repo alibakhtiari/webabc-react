@@ -1,6 +1,8 @@
 
+'use client';
+
 import React, { createContext, useState, useContext, useEffect, ReactNode } from 'react';
-import { useNavigate, useLocation } from 'react-router-dom';
+import { useRouter, usePathname } from 'next/navigation';
 import { getPathWithoutLanguage, normalizePath, isLanguageRootPath, getPageNameFromPath } from '@/lib/languageUtils';
 import { getTranslatedString, getSeoTitle, getSeoDescription } from '@/lib/translationUtils';
 import { useLanguageDetection } from '@/hooks/useLanguageDetection';
@@ -18,21 +20,21 @@ interface LanguageProviderProps {
 export const LanguageProvider: React.FC<LanguageProviderProps> = ({ children }) => {
   const initialLanguage = useLanguageDetection();
   const [language, setLanguageState] = useState<SupportedLanguage>(initialLanguage);
-  const navigate = useNavigate();
-  const location = useLocation();
+  const router = useRouter();
+  const pathname = usePathname();
   const [isInitialized, setIsInitialized] = useState(false);
 
   // Handle language change
   const setLanguage = (lang: SupportedLanguage) => {
     if (lang === language) return;
-    
+
     localStorage.setItem('language', lang);
     setLanguageState(lang);
-    
+
     // Update URL to reflect language change
-    const pathWithoutLang = getPathWithoutLanguage(location.pathname);
+    const pathWithoutLang = getPathWithoutLanguage(pathname || '');
     const newPath = normalizePath(`/${lang}${pathWithoutLang}`);
-    navigate(newPath);
+    router.push(newPath);
   };
 
   // Translation function wrapper
@@ -42,12 +44,12 @@ export const LanguageProvider: React.FC<LanguageProviderProps> = ({ children }) 
 
   // Get SEO title wrapper
   const getContextSeoTitle = (title?: string): string => {
-    return getSeoTitle(language, location.pathname, title);
+    return getSeoTitle(language, pathname || '', title);
   };
 
   // Get SEO description wrapper
   const getContextSeoDescription = (description?: string): string => {
-    return getSeoDescription(language, location.pathname, description);
+    return getSeoDescription(language, pathname || '', description);
   };
 
   // Apply document direction based on language
@@ -56,33 +58,24 @@ export const LanguageProvider: React.FC<LanguageProviderProps> = ({ children }) 
     document.documentElement.lang = language;
   }, [language]);
 
-  // Initialize route based on selected language
+  // Initialize route based on selected language (Next.js handles i18n routing differently)
   useEffect(() => {
     if (isInitialized) return;
-    
-    // Check if we need to redirect to a language-specific route
-    const pathSegments = location.pathname.split('/').filter(Boolean);
-    
-    if (pathSegments.length === 0) {
-      // Root path "/" - redirect to language home
-      navigate(`/${language}`, { replace: true });
-      setIsInitialized(true);
-    } else if (!Object.keys(languages).includes(pathSegments[0] as SupportedLanguage)) {
-      // Path doesn't start with a language code - add the current language
-      navigate(`/${language}${location.pathname}`, { replace: true });
-      setIsInitialized(true);
-    } else if (pathSegments[0] !== language) {
-      // URL language is different from state language - update state
+
+    // Check if we need to update state based on URL language
+    const pathSegments = (pathname || '').split('/').filter(Boolean);
+
+    if (pathSegments.length > 0 && Object.keys(languages).includes(pathSegments[0] as SupportedLanguage)) {
+      // URL has language prefix, check if it matches current state
       const urlLang = pathSegments[0] as SupportedLanguage;
-      if (Object.keys(languages).includes(urlLang)) {
+      if (urlLang !== language) {
         setLanguageState(urlLang);
         localStorage.setItem('language', urlLang);
-        setIsInitialized(true);
       }
-    } else {
-      setIsInitialized(true);
     }
-  }, [location.pathname, isInitialized, navigate, language]);
+
+    setIsInitialized(true);
+  }, [pathname, isInitialized, language]);
 
   return (
     <LanguageContext.Provider 

@@ -1,10 +1,12 @@
 
+'use client';
+
 import React from 'react';
 import { Button } from '@/components/ui/button';
-import { Link } from 'react-router-dom';
+import UniversalLink from '@/components/Link';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { ArrowRight } from 'lucide-react';
-import OptimizedImage from './OptimizedImage';
+import NextImage from './NextImage';
 
 const HeroSection = () => {
   const { t, language, languageMeta } = useLanguage();
@@ -24,23 +26,23 @@ const HeroSection = () => {
               {t('home.hero.description', { fallback: 'We help businesses grow online with professional web development and SEO strategies that deliver real results.' })}
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-              <Button size="lg" className="px-8" asChild>
-                <Link to={`/${language}/services`}>
+              <Button size="lg" className="px-8">
+                <UniversalLink href="/services">
                   {t('home.hero.primaryCta', { fallback: 'Explore Services' })}
-                </Link>
+                </UniversalLink>
               </Button>
-              <Button variant="outline" size="lg" className="px-8" asChild>
-                <Link to={`/${language}/portfolio`} className="flex items-center gap-2">
+              <Button variant="outline" size="lg" className="px-8">
+                <UniversalLink href="/portfolio" className="flex items-center gap-2">
                   {t('home.hero.secondaryCta', { fallback: 'View Portfolio' })}
                   <ArrowIcon />
-                </Link>
+                </UniversalLink>
               </Button>
             </div>
           </div>
           <div className="col-span-1 lg:col-span-6">
             <div className="relative">
               <div className="absolute -z-10 inset-0 bg-gradient-to-tr from-primary/20 to-secondary/20 blur-3xl rounded-full transform scale-110"></div>
-              <OptimizedImage
+              <NextImage
                 src="/images/hero-image.png"
                 alt={t('home.hero.imageAlt', { fallback: 'Digital marketing and web development illustration' })}
                 className="w-full h-auto object-cover rounded-lg shadow-2xl"

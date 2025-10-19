@@ -2,7 +2,7 @@
 import React from 'react';
 import { cn } from '@/lib/utils';
 import { useLanguage } from '@/contexts/LanguageContext';
-import { Link } from 'react-router-dom';
+import UniversalLink from '@/components/Link';
 import { Twitter, Instagram, Linkedin, Facebook } from 'lucide-react';
 
 const Footer = () => {
@@ -15,11 +15,11 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
           <div className="md:col-span-1">
             <div className="flex flex-col space-y-4">
-              <Link to={`/${language}`} className="flex items-center space-x-2">
+              <UniversalLink href="/" className="flex items-center space-x-2">
                 <span className={cn("text-2xl font-bold tracking-tight text-primary", languageMeta.fontFamily)}>
                   WebABC
                 </span>
-              </Link>
+              </UniversalLink>
 
               <p className={cn("text-foreground/70 mt-2", languageMeta.fontFamily)}>
                 {t('common.aboutCompany')}
@@ -85,12 +85,12 @@ const Footer = () => {
                 <ul className="space-y-2">
                   {category.links.map((link, linkIdx) => (
                     <li key={linkIdx}>
-                      <a
+                      <UniversalLink
                         href={link.href}
                         className={cn("text-foreground/70 hover:text-primary transition-colors", languageMeta.fontFamily)}
                       >
                         {link.name}
-                      </a>
+                      </UniversalLink>
                     </li>
                   ))}
                 </ul>

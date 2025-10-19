@@ -41,8 +41,8 @@ const WordpressHeroSection = () => {
             <div className="relative">
               <div className="bg-gray-100 rounded-2xl p-4 shadow-xl">
                 <div className="aspect-[4/3] rounded-lg overflow-hidden">
-                  <img 
-                    src={wordpressHero} 
+                  <img
+                    src="/assets/wordpress-hero.jpg"
                     alt="WordPress & WooCommerce Development"
                     className="w-full h-full object-cover"
                   />

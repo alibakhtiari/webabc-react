@@ -1,17 +1,15 @@
 
+'use client';
+
 import React from 'react';
-import { useParams, Link } from 'react-router-dom';
-import Navbar from '@/components/Navbar';
+import { useParams } from 'next/navigation';
 import Footer from '@/components/Footer';
-import SEOHead from '@/components/SEOHead';
-import SchemaMarkup from '@/components/SchemaMarkup';
-import { createBreadcrumbSchema } from '@/lib/schema';
+import Breadcrumb from '@/components/Breadcrumb';
 import { Button } from '@/components/ui/button';
 import { ArrowLeft, ExternalLink } from 'lucide-react';
 import LazyImage from '@/components/LazyImage';
+import UniversalLink from '@/components/Link';
 import { useLanguage } from '@/contexts/LanguageContext';
-import { generateLanguageAlternates, getPathWithoutLanguage } from '@/lib/languageUtils';
-import { useLocation } from 'react-router-dom';
 
 interface PortfolioItemProps {
   portfolioItems: {
@@ -28,73 +26,31 @@ interface PortfolioItemProps {
   }[];
 }
 
-const PortfolioItemPage: React.FC<PortfolioItemProps> = ({ portfolioItems }) => {
-  const { id } = useParams<{ id: string }>();
+const PortfolioItemPage: React.FC<PortfolioItemProps & { id: string }> = ({ portfolioItems, id }) => {
   const { t, language, languageMeta } = useLanguage();
-  const location = useLocation();
-  const path = getPathWithoutLanguage(location.pathname);
-  const languageAlternates = generateLanguageAlternates(path, language);
-  
+
   const item = portfolioItems.find(item => item.id === id);
-  
+
   if (!item) {
     return (
       <div className="min-h-screen flex items-center justify-center bg-gray-50">
         <div className="text-center">
-          <h1 className="text-3xl font-bold mb-4">{language === 'en' ? 'Portfolio item not found' : language === 'ar' ? 'لم يتم العثور على العنصر' : 'نمونه کار یافت نشد'}</h1>
-          <p className="mb-6">{language === 'en' ? 'The requested portfolio item could not be found.' : language === 'ar' ? 'لم يتم العثور على عنصر المحفظة المطلوب.' : 'متأسفانه نمونه کار مورد نظر یافت نشد.'}</p>
-          <Button asChild>
-            <Link to={`/${language}/portfolio`}>{t('common.backToPortfolio')}</Link>
+          <h1 className="text-3xl font-bold mb-4">{t('common.notFound', { fallback: 'Not Found' })}</h1>
+          <p className="mb-6">{t('portfolio.itemNotFound', { fallback: 'Portfolio item not found' })}</p>
+          <Button asChild variant="outline">
+            <UniversalLink href="/portfolio">{t('common.backToPortfolio')}</UniversalLink>
           </Button>
         </div>
       </div>
     );
   }
-  
-  // Schema markup for portfolio item
-  const breadcrumbSchema = createBreadcrumbSchema([
-    { name: language === 'en' ? 'Home' : language === 'ar' ? 'الرئيسية' : 'صفحه اصلی', item: `https://webabc.ir/${language}` },
-    { name: t('common.portfolio'), item: `https://webabc.ir/${language}/portfolio` },
-    { name: item.title, item: `https://webabc.ir/${language}/portfolio/${item.id}` }
-  ]);
-  
-  const portfolioItemSchema = {
-    "@context": "https://schema.org",
-    "@type": "CreativeWork",
-    "name": item.title,
-    "description": item.description,
-    "image": item.image,
-    "creator": {
-      "@type": "Organization",
-      "name": language === 'en' ? 'WebABC' : language === 'ar' ? 'ويب إيه بي سي' : 'وب آ ب ث'
-    },
-    "inLanguage": language
-  };
 
   return (
-    <div className="font-persian min-h-screen flex flex-col">
-      <SEOHead 
-        title={`${item.title} | ${t('common.portfolio')}`}
-        description={item.description}
-        keywords={`${item.title}, ${item.category}, ${language === 'en' ? 'portfolio, web design sample, seo sample' : language === 'ar' ? 'معرض الأعمال، نموذج تصميم الويب، نموذج تحسين محركات البحث' : 'نمونه کار طراحی سایت, نمونه کار سئو'}`}
-        languageAlternates={languageAlternates}
-      />
-      
-      <SchemaMarkup schema={breadcrumbSchema} />
-      <SchemaMarkup schema={portfolioItemSchema} />
-      
-      <Navbar />
-      
-      <main className="flex-1 mt-24 mb-16">
-        <div className="container mx-auto px-4">
-          {/* Breadcrumb */}
-          <div className="text-sm mb-6">
-            <Link to={`/${language}`} className="text-gray-500 hover:text-primary">{t('common.home')}</Link>
-            <span className="mx-2">/</span>
-            <Link to={`/${language}/portfolio`} className="text-gray-500 hover:text-primary">{t('common.portfolio')}</Link>
-            <span className="mx-2">/</span>
-            <span className="text-primary">{item.title}</span>
-          </div>
+    <div className={`min-h-screen ${languageMeta.fontFamily} flex flex-col`}>
+      <Breadcrumb />
+
+      <main className="flex-1 py-20">
+        <div className="container mx-auto px-4 md:px-6">
           
           {/* Project Header */}
           <div className="mb-10">
@@ -162,7 +118,7 @@ const PortfolioItemPage: React.FC<PortfolioItemProps> = ({ portfolioItems }) => 
               
               <div className="flex flex-wrap gap-4 pt-4">
                 <Button asChild variant="outline">
-                  <Link to={`/${language}/portfolio`}>
+                  <UniversalLink href="/portfolio">
                     {languageMeta.direction === 'rtl' ? (
                       <>
                         {t('common.backToPortfolio')}
@@ -174,9 +130,9 @@ const PortfolioItemPage: React.FC<PortfolioItemProps> = ({ portfolioItems }) => 
                         {t('common.backToPortfolio')}
                       </>
                     )}
-                  </Link>
+                  </UniversalLink>
                 </Button>
-                
+
                 {item.projectUrl && (
                   <Button asChild>
                     <a href={item.projectUrl} target="_blank" rel="noopener noreferrer">

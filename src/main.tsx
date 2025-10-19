@@ -1,9 +1,8 @@
 
 import React, { Suspense } from 'react';
 import ReactDOM from 'react-dom/client';
-import App from './App.tsx';
+import App from './App';
 import './index.css';
-import { HelmetProvider } from 'react-helmet-async';
 import LoadingSpinner from './components/LoadingSpinner';
 
 /**
@@ -47,11 +46,9 @@ class ErrorBoundary extends React.Component<{children: React.ReactNode}, {hasErr
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
     <ErrorBoundary>
-      <HelmetProvider>
-        <Suspense fallback={<LoadingSpinner />}>
-          <App />
-        </Suspense>
-      </HelmetProvider>
+      <Suspense fallback={<LoadingSpinner />}>
+        <App />
+      </Suspense>
     </ErrorBoundary>
   </React.StrictMode>,
 );
