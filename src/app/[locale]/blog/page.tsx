@@ -1,24 +1,7 @@
-import dynamic from 'next/dynamic';
-import { Suspense } from 'react';
-
-const BlogPage = dynamic(() => import('@/pages/BlogPage'), {
-  loading: () => (
-    <div className="min-h-screen flex items-center justify-center">
-      <div className="animate-pulse text-muted-foreground text-lg">Loading...</div>
-    </div>
-  ),
-});
+import BlogClient from '@/components/BlogClient';
 
 export default function BlogRoute() {
-  return (
-    <Suspense fallback={
-      <div className="min-h-screen flex items-center justify-center">
-        <div className="animate-pulse text-muted-foreground text-lg">Loading...</div>
-      </div>
-    }>
-      <BlogPage />
-    </Suspense>
-  );
+  return <BlogClient />;
 }
 
 // Generate metadata for blog listing page

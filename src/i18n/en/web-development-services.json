@@ -18,5 +18,21 @@
   "feature.database": "Database Design & Management",
   "feature.auth": "Authentication & Authorization",
   "feature.cloudIntegration": "Cloud Integration",
-  "keywords": "web development, services, react, nextjs"
+  "keywords": "web development, services, react, nextjs",
+  "webDev": {
+    "title": "Web Development Services",
+    "description": "Professional web development services using modern technologies and best practices",
+    "customSites": "Custom Website Development",
+    "customDesc": "Tailored websites built with modern frameworks and responsive design",
+    "ecommerce": "E-commerce Solutions",
+    "ecommerceDesc": "Online stores with payment integration and inventory management",
+    "cms": "Content Management Systems",
+    "cmsDesc": "Easy-to-use CMS platforms for content management",
+    "api": "API Development",
+    "apiDesc": "RESTful APIs and backend services",
+    "performance": "Performance Optimization",
+    "performanceDesc": "Fast loading websites with optimal performance",
+    "maintenance": "Website Maintenance",
+    "maintenanceDesc": "Ongoing support and website updates"
+  }
 }

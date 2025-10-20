@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from 'react';
 import { cn } from '@/lib/utils';
-import teamImage from '@/assets/team-webabc.jpg';
+import Image from 'next/image';
 
 const AboutSection = () => {
   const sectionRef = useRef<HTMLDivElement>(null);
@@ -53,10 +53,12 @@ const AboutSection = () => {
           <div className="animate-on-scroll opacity-0 transition-all duration-500">
             <div className="neo-morphism rounded-2xl p-3 relative">
               <div className="aspect-square rounded-xl overflow-hidden">
-                <img
+                <Image
                   src="/assets/team-webabc.jpg"
                   alt="WebABC Team"
                   className="w-full h-full object-cover"
+                  width={400}
+                  height={400}
                 />
               </div>
               

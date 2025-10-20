@@ -1,24 +1,7 @@
-import dynamic from 'next/dynamic';
-import { Suspense } from 'react';
-
-const Tools = dynamic(() => import('@/pages/Tools'), {
-  loading: () => (
-    <div className="min-h-screen flex items-center justify-center">
-      <div className="animate-pulse text-muted-foreground text-lg">Loading...</div>
-    </div>
-  ),
-});
+import ToolsClient from '@/components/ToolsClient';
 
 export default function ToolsRoute() {
-  return (
-    <Suspense fallback={
-      <div className="min-h-screen flex items-center justify-center">
-        <div className="animate-pulse text-muted-foreground text-lg">Loading...</div>
-      </div>
-    }>
-      <Tools />
-    </Suspense>
-  );
+  return <ToolsClient />;
 }
 
 // Generate metadata for tools page

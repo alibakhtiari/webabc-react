@@ -1,22 +1,35 @@
-import dynamic from 'next/dynamic';
-import { Suspense } from 'react';
+'use client';
 
-const About = dynamic(() => import('@/pages/About'), {
-  loading: () => (
-    <div className="min-h-screen flex items-center justify-center">
-      <div className="animate-pulse text-muted-foreground text-lg">Loading...</div>
-    </div>
-  ),
-});
+import React from 'react';
+import AboutSection from '@/components/AboutSection';
+import BenefitsSection from '@/components/BenefitsSection';
+import Footer from '@/components/Footer';
+import Breadcrumb from '@/components/Breadcrumb';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 export default function AboutPage() {
+  let language = 'fa';
+  let languageMeta: any = {
+    direction: 'rtl',
+    nativeName: 'فارسی',
+    fontFamily: '',
+  };
+
+  try {
+    const context = useLanguage();
+    language = context.language;
+    languageMeta = context.languageMeta;
+  } catch (error) {
+    // Handle the case where LanguageProvider is not available during static generation
+    console.warn('LanguageProvider not available, using defaults:', error);
+  }
+
   return (
-    <Suspense fallback={
-      <div className="min-h-screen flex items-center justify-center">
-        <div className="animate-pulse text-muted-foreground text-lg">Loading...</div>
-      </div>
-    }>
-      <About />
-    </Suspense>
+    <main className={`min-h-screen ${languageMeta.fontFamily}`}>
+      <Breadcrumb />
+      <AboutSection />
+      <BenefitsSection />
+      <Footer />
+    </main>
   );
 }

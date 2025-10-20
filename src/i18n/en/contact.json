@@ -44,5 +44,7 @@
     "projectType": "Project type",
     "budget": "Budget range",
     "deadline": "Project deadline"
-  }
+  },
+  "title": "Contact Us",
+  "description": "Get in touch with us for your web development needs"
 }

@@ -24,10 +24,22 @@
   "specialOffer": "پیشنهاد ویژه",
   "orderPlan": "سفارش طرح",
   "themeCustomization": "سفارشی‌سازی قالب",
-  "pluginDevelopment": "توسعه افزونه",
   "ecommerceSetup": "راه‌اندازی فروشگاه",
-  "performanceOptimization": "بهینه‌سازی عملکرد",
   "maintenanceSupport": "نگهداری و پشتیبانی",
   "seoOptimization": "بهینه‌سازی سئو",
-  "contentCreation": "تولید محتوا"
+  "contentCreation": "تولید محتوا",
+  "wordpressServices": "خدمات وردپرس",
+  "customThemes": "طراحی و توسعه قالب‌های سفارشی وردپرس",
+  "pluginDevelopment": "توسعه افزونه سفارشی و یکپارچه‌سازی",
+  "performanceOptimization": "بهینه‌سازی عملکرد و بهبود سرعت",
+  "security": "تقویت امنیت و نگهداری",
+  "woocommerceServices": "خدمات ووکامرس",
+  "paymentIntegration": "یکپارچه‌سازی درگاه‌های پرداخت (Stripe, PayPal, etc.)",
+  "inventoryManagement": "یکپارچه‌سازی مدیریت موجودی و محصولات",
+  "taxShipping": "پیکربندی مالیات و حمل و نقل",
+  "cta": {
+    "title": "آماده راه‌اندازی وب‌سایت وردپرس خود هستید؟",
+    "description": "مشاوره رایگان دریافت کنید و قیمت پروژه وردپرس خود را دریافت کنید",
+    "button": "مشاوره رایگان دریافت کنید"
+  }
 }

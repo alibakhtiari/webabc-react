@@ -1,7 +1,12 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   images: {
-    domains: ['cdn.jsdelivr.net', 'webabc.ir', 'webabc.ir.webabc.com', 'images.unsplash.com'],
+    remotePatterns: [
+      { hostname: 'cdn.jsdelivr.net' },
+      { hostname: 'webabc.ir' },
+      { hostname: 'webabc.ir.webabc.com' },
+      { hostname: 'images.unsplash.com' },
+    ],
     formats: ['image/webp', 'image/avif'],
   },
   experimental: {

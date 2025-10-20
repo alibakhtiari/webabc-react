@@ -1,14 +1,4 @@
-import dynamic from 'next/dynamic';
-import { Suspense } from 'react';
-import { notFound } from 'next/navigation';
-
-const BlogPostPage = dynamic(() => import('@/pages/BlogPostPage'), {
-  loading: () => (
-    <div className="min-h-screen flex items-center justify-center">
-      <div className="animate-pulse text-muted-foreground text-lg">Loading...</div>
-    </div>
-  ),
-});
+import BlogPostClient from '@/components/BlogPostClient';
 
 interface BlogPostPageProps {
   params: {
@@ -18,15 +8,7 @@ interface BlogPostPageProps {
 }
 
 export default function BlogPostRoute({ params: { locale, slug } }: BlogPostPageProps) {
-  return (
-    <Suspense fallback={
-      <div className="min-h-screen flex items-center justify-center">
-        <div className="animate-pulse text-muted-foreground text-lg">Loading...</div>
-      </div>
-    }>
-      <BlogPostPage />
-    </Suspense>
-  );
+  return <BlogPostClient slug={slug} />;
 }
 
 // Generate metadata for blog posts

@@ -5,7 +5,7 @@ import Footer from '@/components/Footer';
 import Breadcrumb from '@/components/Breadcrumb';
 import { useLanguage } from '@/contexts/LanguageContext';
 
-const Tools: React.FC = () => {
+export default function ToolsClient() {
   const { language, languageMeta, t } = useLanguage();
 
   return (
@@ -24,17 +24,18 @@ const Tools: React.FC = () => {
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
             {[
-              { title: 'SEO Checker', description: 'Analyze your website SEO performance' },
-              { title: 'Page Speed Test', description: 'Check your page loading speed' },
-              { title: 'Keyword Research', description: 'Find the best keywords for your content' }
+              { title: 'SEO Checker', description: 'Analyze your website SEO performance', href: '/tools/seo-checker' },
+              { title: 'Page Speed Test', description: 'Check your page loading speed', href: '/tools/page-speed' },
+              { title: 'Keyword Research', description: 'Find the best keywords for your content', href: '/tools/keyword-research' },
+              { title: 'Headline Analyzer', description: 'Analyze your headlines for better click rates', href: '/tools/headline-analyzer' },
+              { title: 'Meta Generator', description: 'Generate optimal meta tags', href: '/tools/meta-generator' },
+              { title: 'Readability Checker', description: 'Check how readable your content is', href: '/tools/readability-checker' }
             ].map((tool, index) => (
-              <div key={index} className="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow">
+              <a key={index} href={tool.href} className="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow block">
                 <h3 className="text-xl font-semibold mb-3">{tool.title}</h3>
                 <p className="text-muted-foreground mb-4">{tool.description}</p>
-                <button className="w-full bg-primary text-white py-2 px-4 rounded hover:bg-primary/90 transition-colors">
-                  {t('tools.useTool', { fallback: 'Use Tool' })}
-                </button>
-              </div>
+                <span className="text-primary hover:underline">Use Tool →</span>
+              </a>
             ))}
           </div>
         </div>
@@ -42,6 +43,4 @@ const Tools: React.FC = () => {
       <Footer />
     </main>
   );
-};
-
-export default Tools;
+}

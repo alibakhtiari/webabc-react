@@ -2,6 +2,7 @@ import { LanguageProvider } from '@/contexts/LanguageContext';
 import { ThemeProvider } from 'next-themes';
 import { Inter } from 'next/font/google';
 import '@/app/globals.css';
+import Navbar from '@/components/Navbar';
 
 // Font configurations
 const inter = Inter({
@@ -23,20 +24,21 @@ export default function LocaleLayout({
   children: React.ReactNode;
   params: { locale: string };
 }) {
+  const direction = locale === 'ar' || locale === 'fa' ? 'rtl' : 'ltr';
+
   return (
-    <html lang={locale} dir={locale === 'ar' || locale === 'fa' ? 'rtl' : 'ltr'} suppressHydrationWarning>
-      <body className={`${inter.variable} ${ltrFont.variable} font-sans`}>
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="light"
-          enableSystem={false}
-          disableTransitionOnChange
-        >
-          <LanguageProvider>
-            {children}
-          </LanguageProvider>
-        </ThemeProvider>
-      </body>
-    </html>
+    <div className={`${inter.variable} ${ltrFont.variable} font-sans`} dir={direction} lang={locale}>
+      <ThemeProvider
+        attribute="class"
+        defaultTheme="light"
+        enableSystem={false}
+        disableTransitionOnChange
+      >
+        <LanguageProvider>
+          <Navbar />
+          {children}
+        </LanguageProvider>
+      </ThemeProvider>
+    </div>
   );
 }

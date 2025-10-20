@@ -24,10 +24,22 @@
   "specialOffer": "Special Offer",
   "orderPlan": "Order Plan",
   "themeCustomization": "Theme Customization",
-  "pluginDevelopment": "Plugin Development",
-  "ecommerceSetup": "E-commerce Setup",
-  "performanceOptimization": "Performance Optimization",
   "maintenanceSupport": "Maintenance & Support",
   "seoOptimization": "SEO Optimization",
-  "contentCreation": "Content Creation"
+  "contentCreation": "Content Creation",
+  "wordpressServices": "WordPress Services",
+  "customThemes": "Custom WordPress themes design and development",
+  "pluginDevelopment": "Custom plugin development and integration",
+  "performanceOptimization": "Performance optimization and speed improvements",
+  "security": "Security hardening and maintenance",
+  "woocommerceServices": "WooCommerce Services",
+  "ecommerceSetup": "Complete e-commerce store setup and configuration",
+  "paymentIntegration": "Payment gateway integration (Stripe, PayPal, etc.)",
+  "inventoryManagement": "Inventory and product management integration",
+  "taxShipping": "Tax and shipping configuration",
+  "cta": {
+    "title": "Ready to Launch Your WordPress Site?",
+    "description": "Get a free consultation and quote for your WordPress project",
+    "button": "Get Free Consultation"
+  }
 }

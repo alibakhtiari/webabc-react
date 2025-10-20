@@ -1,14 +1,13 @@
 'use client';
 
 import React from 'react';
-import ServicesSection from '@/components/ServicesSection';
-import BenefitsSection from '@/components/BenefitsSection';
-import CTASection from '@/components/CTASection';
+import PortfolioGallery from '@/components/PortfolioGallery';
 import Footer from '@/components/Footer';
 import Breadcrumb from '@/components/Breadcrumb';
 import { useLanguage } from '@/contexts/LanguageContext';
+import { portfolioItems } from '@/lib/portfolioData';
 
-const Services: React.FC = () => {
+export default function CaseStudiesClient() {
   const { language, languageMeta, t } = useLanguage();
 
   return (
@@ -18,20 +17,19 @@ const Services: React.FC = () => {
         <div className="container mx-auto px-4 md:px-6">
           <div className="text-center mb-12">
             <h1 className="text-4xl md:text-5xl font-bold mb-4">
-              {t('services.title', { fallback: 'Our Services' })}
+              {t('caseStudies.title', { fallback: 'Case Studies' })}
             </h1>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-              {t('services.description', { fallback: 'Professional web development and SEO services to grow your business online' })}
+              {t('caseStudies.description', { fallback: 'Explore our successful client projects and implementation results' })}
             </p>
+          </div>
+
+          <div className="mb-8">
+            <PortfolioGallery items={portfolioItems} />
           </div>
         </div>
       </section>
-      <ServicesSection />
-      <BenefitsSection />
-      <CTASection />
       <Footer />
     </main>
   );
-};
-
-export default Services;
+}

@@ -1,7 +1,7 @@
 
 import React, { useState, useEffect, useRef } from 'react';
 import { cn } from '@/lib/utils';
-import NextImage from './NextImage';
+import Image from 'next/image';
 import UniversalLink from './Link';
 import { useLanguage } from '@/contexts/LanguageContext';
 
@@ -116,7 +116,7 @@ const PortfolioGallery = ({ items, className }: PortfolioGalleryProps) => {
                 >
                   <div className="rounded-xl overflow-hidden bg-white shadow-md hover:shadow-xl transition-all duration-300 h-full">
                     <div className="relative aspect-video overflow-hidden">
-                      <NextImage
+                      <Image
                         src={item.image}
                         alt={item.title}
                         className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"

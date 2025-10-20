@@ -1,45 +1,53 @@
-import dynamic from 'next/dynamic';
-import { Suspense } from 'react';
+'use client';
 
-const WebDesign = dynamic(() => import('@/pages/WebDesign'), {
-  loading: () => (
-    <div className="min-h-screen flex items-center justify-center">
-      <div className="animate-pulse text-muted-foreground text-lg">Loading...</div>
-    </div>
-  ),
-});
+import React from 'react';
+import Footer from '@/components/Footer';
+import Breadcrumb from '@/components/Breadcrumb';
+import { useLanguage } from '@/contexts/LanguageContext';
 
-export default function WebDesignRoute() {
+export default function WebDesignPage() {
+  const { language, languageMeta, t } = useLanguage();
+
   return (
-    <Suspense fallback={
-      <div className="min-h-screen flex items-center justify-center">
-        <div className="animate-pulse text-muted-foreground text-lg">Loading...</div>
-      </div>
-    }>
-      <WebDesign />
-    </Suspense>
+    <main className={`min-h-screen ${languageMeta.fontFamily}`}>
+      <Breadcrumb />
+      <section className="py-20">
+        <div className="container mx-auto px-4 md:px-6">
+          <div className="text-center mb-12">
+            <h1 className="text-4xl md:text-5xl font-bold mb-4">
+              {t('webdesign.title', { fallback: 'Web Design' })}
+            </h1>
+            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+              {t('webdesign.description', { fallback: 'Professional web design services to create stunning online experiences' })}
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 max-w-6xl mx-auto mb-16">
+            <div className="space-y-6">
+              <h2 className="text-2xl font-semibold">Modern Design Principles</h2>
+              <ul className="space-y-3 text-muted-foreground">
+                <li>• User-centered design approach</li>
+                <li>• Mobile-first responsive design</li>
+                <li>• Accessibility and inclusive design</li>
+                <li>• Fast loading performance</li>
+                <li>• SEO-friendly structure</li>
+              </ul>
+            </div>
+
+            <div className="space-y-6">
+              <h2 className="text-2xl font-semibold">Technologies We Use</h2>
+              <ul className="space-y-3 text-muted-foreground">
+                <li>• HTML5, CSS3, JavaScript</li>
+                <li>• React, Next.js frameworks</li>
+                <li>• Tailwind CSS for styling</li>
+                <li>• TypeScript for type safety</li>
+                <li>• Modern build tools and optimization</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+      <Footer />
+    </main>
   );
-}
-
-// Generate metadata for web design page
-export async function generateMetadata({ params: { locale } }: { params: { locale: string } }) {
-  const title = locale === 'fa' ? 'طراحی وبسایت | WebABC' :
-                locale === 'ar' ? 'تصميم المواقع | WebABC' : 'Web Design | WebABC';
-
-  const description = locale === 'fa' ? 'طراحی وبسایت حرفه‌ای و مدرن با بهترین تجربه کاربری برای مشتریان شما' :
-                     locale === 'ar' ? 'تصميم مواقع إلكترونية احترافي وحديث مع أفضل تجربة مستخدم لعملائك' :
-                     'Professional and modern web design with the best user experience for your customers';
-
-  return {
-    title,
-    description,
-    alternates: {
-      canonical: '/web-design',
-      languages: {
-        'fa-IR': '/fa/web-design',
-        'en-US': '/en/web-design',
-        'ar-SA': '/ar/web-design',
-      },
-    },
-  };
 }

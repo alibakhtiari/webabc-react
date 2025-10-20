@@ -2,11 +2,11 @@
 'use client';
 
 import React from 'react';
+import Image from 'next/image';
 import { Button } from '@/components/ui/button';
 import UniversalLink from '@/components/Link';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { ArrowRight } from 'lucide-react';
-import NextImage from './NextImage';
 
 const HeroSection = () => {
   const { t, language, languageMeta } = useLanguage();
@@ -42,8 +42,8 @@ const HeroSection = () => {
           <div className="col-span-1 lg:col-span-6">
             <div className="relative">
               <div className="absolute -z-10 inset-0 bg-gradient-to-tr from-primary/20 to-secondary/20 blur-3xl rounded-full transform scale-110"></div>
-              <NextImage
-                src="/images/hero-image.png"
+              <Image
+                src="/og-image.png"
                 alt={t('home.hero.imageAlt', { fallback: 'Digital marketing and web development illustration' })}
                 className="w-full h-auto object-cover rounded-lg shadow-2xl"
                 width={600}
