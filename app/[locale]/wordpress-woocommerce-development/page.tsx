@@ -5,7 +5,8 @@ export default function WordPressWooCommerceDevelopment() {
 }
 
 // Generate metadata for WordPress/WooCommerce development page
-export async function generateMetadata({ params: { locale } }: { params: { locale: string } }) {
+export async function generateMetadata(props: { params: Promise<{ locale: string }> }) {
+  const { locale } = await props.params;
   const title = locale === 'fa' ? 'توسعه وردپرس و ووکامرس - وب‌ای‌بی‌سی' :
                 locale === 'ar' ? 'تطوير ووردبريس و ووكوميرس - WebABC' : 'WordPress & WooCommerce Development - WebABC';
 

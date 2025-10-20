@@ -12,11 +12,7 @@ import PagePreloader from '@/components/PagePreloader';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { portfolioItems } from '@/lib/portfolioData';
 
-export default function LocalePage({
-  params: { locale },
-}: {
-  params: { locale: string };
-}) {
+export default function LocalePage() {
   let language = 'fa';
   let languageMeta: any = {
     direction: 'rtl',

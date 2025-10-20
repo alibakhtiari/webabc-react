@@ -5,7 +5,8 @@ export default function BlogRoute() {
 }
 
 // Generate metadata for blog listing page
-export async function generateMetadata({ params: { locale } }: { params: { locale: string } }) {
+export async function generateMetadata(props: { params: Promise<{ locale: string }> }) {
+  const { locale } = await props.params;
   const title = locale === 'fa' ? 'وبلاگ وب‌ای‌بی‌سی' :
                 locale === 'ar' ? 'مدونة WebABC' : 'WebABC Blog';
 

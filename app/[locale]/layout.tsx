@@ -1,7 +1,7 @@
 import { LanguageProvider } from '@/contexts/LanguageContext';
 import { ThemeProvider } from 'next-themes';
 import { Inter } from 'next/font/google';
-import '@/app/globals.css';
+import "@/app/globals.css";
 import Navbar from '@/components/Navbar';
 
 // Font configurations
@@ -17,13 +17,14 @@ const ltrFont = Inter({
   variable: '--font-ltr',
 });
 
-export default function LocaleLayout({
+export default async function LocaleLayout({
   children,
-  params: { locale },
+  params,
 }: {
   children: React.ReactNode;
-  params: { locale: string };
+  params: Promise<{ locale: string }>;
 }) {
+  const { locale } = await params;
   const direction = locale === 'ar' || locale === 'fa' ? 'rtl' : 'ltr';
 
   return (

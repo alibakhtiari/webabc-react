@@ -5,7 +5,8 @@ export default function WebDevelopmentServices() {
 }
 
 // Generate metadata for web development services page
-export async function generateMetadata({ params: { locale } }: { params: { locale: string } }) {
+export async function generateMetadata(props: { params: Promise<{ locale: string }> }) {
+  const { locale } = await props.params;
   const title = locale === 'fa' ? 'خدمات توسعه وب - Webbookir' :
                 locale === 'ar' ? 'خدمات تطوير المواقع - Webbookir' : 'Web Development Services - WebABC';
 

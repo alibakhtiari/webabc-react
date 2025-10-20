@@ -1,13 +1,14 @@
 import ToolPageClient from '@/components/ToolPageClient';
 
 interface ToolPageProps {
-  params: {
+  params: Promise<{
     locale: string;
     tool: string;
-  };
+  }>;
 }
 
-export default function ToolPage({ params: { locale, tool } }: ToolPageProps) {
+export default async function ToolPage(props: ToolPageProps) {
+  const { locale, tool } = await props.params;
   return <ToolPageClient tool={tool} />;
 }
 
@@ -39,7 +40,8 @@ export async function generateStaticParams() {
 }
 
 // Generate metadata for tools
-export async function generateMetadata({ params: { locale, tool } }: ToolPageProps) {
+export async function generateMetadata(props: ToolPageProps) {
+  const { locale, tool } = await props.params;
   const toolMap = {
     'headline-analyzer': 'Headline Analyzer Tool - Improve Your Click-Through Rates',
     'lorem-generator': 'Lorem Ipsum Generator - Dummy Text for Your Projects',

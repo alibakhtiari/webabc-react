@@ -1,18 +1,20 @@
 import BlogPostClient from '@/components/BlogPostClient';
 
 interface BlogPostPageProps {
-  params: {
+  params: Promise<{
     locale: string;
     slug: string;
-  };
+  }>;
 }
 
-export default function BlogPostRoute({ params: { locale, slug } }: BlogPostPageProps) {
+export default async function BlogPostRoute(props: BlogPostPageProps) {
+  const { locale, slug } = await props.params;
   return <BlogPostClient slug={slug} />;
 }
 
 // Generate metadata for blog posts
-export async function generateMetadata({ params: { locale, slug } }: BlogPostPageProps) {
+export async function generateMetadata(props: BlogPostPageProps) {
+  const { locale, slug } = await props.params;
   try {
     // In a real app, you'd fetch the blog post data based on slug and locale
     // For now, we'll use placeholder metadata

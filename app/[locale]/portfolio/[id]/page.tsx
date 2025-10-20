@@ -11,13 +11,14 @@ const PortfolioItemPage = dynamic(() => import('@/components/PortfolioItemPage')
 });
 
 interface PortfolioItemPageProps {
-  params: {
+  params: Promise<{
     locale: string;
     id: string;
-  };
+  }>;
 }
 
-export default function PortfolioItemRoute({ params: { locale, id } }: PortfolioItemPageProps) {
+export default async function PortfolioItemRoute(props: PortfolioItemPageProps) {
+  const { locale, id } = await props.params;
   return (
     <Suspense fallback={
       <div className="min-h-screen flex items-center justify-center">
@@ -30,7 +31,8 @@ export default function PortfolioItemRoute({ params: { locale, id } }: Portfolio
 }
 
 // Generate metadata for portfolio items
-export async function generateMetadata({ params: { locale, id } }: PortfolioItemPageProps) {
+export async function generateMetadata(props: PortfolioItemPageProps) {
+  const { locale, id } = await props.params;
   // In a real app, you'd fetch portfolio data based on id
   const title = `Portfolio Item ${id} | WebABC`;
   const description = `View detailed portfolio case study for project ${id} by WebABC digital agency.`;
