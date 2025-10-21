@@ -1,20 +1,26 @@
-import ToolsClient from '@/components/ToolsClient';
+import React from 'react';
+import { getTranslatedString } from '@/lib/translationUtils';
+import ToolsUI from '@/components/ToolsUI';
+import type { Metadata } from 'next';
 
-export default function ToolsRoute() {
-  return <ToolsClient />;
-}
+type ToolsPageProps = {
+  params: Promise<{ locale: string }>;
+};
 
-// Generate metadata for tools page
-export async function generateMetadata({ params: { locale } }: { params: { locale: string } }) {
-  const title = locale === 'fa' ? 'ابزارهای رایگان سئو' :
-                locale === 'ar' ? 'أدوات تحسين محركات البحث المجانية' : 'Free SEO Tools';
+export async function generateMetadata({ params }: ToolsPageProps): Promise<Metadata> {
+  const { locale } = await params;
+  const localeTyped = locale as 'en' | 'fa' | 'ar'; // Type assertion based on dynamic route
 
-  const description = locale === 'fa' ? 'مجموعه کاملی از ابزارهای رایگان سئو برای بهبود عملکرد وبسایت شما' :
-                     locale === 'ar' ? 'مجموعة شاملة من أدوات تحسين محركات البحث المجانية لتحسين أداء موقعك' :
-                     'Complete set of free SEO tools to improve your website performance';
+  const title = getTranslatedString('tools.title', localeTyped, {
+    fallback: 'SEO Tools'
+  });
+
+  const description = getTranslatedString('tools.description', localeTyped, {
+    fallback: 'Free online tools to help optimize your website and improve performance'
+  });
 
   return {
-    title,
+    title: `${title} | WebABC`,
     description,
     alternates: {
       canonical: '/tools',
@@ -25,4 +31,10 @@ export async function generateMetadata({ params: { locale } }: { params: { local
       },
     },
   };
+}
+
+export default async function ToolsRoute({ params }: ToolsPageProps) {
+  const { locale } = await params;
+
+  return <ToolsUI locale={locale} />;
 }

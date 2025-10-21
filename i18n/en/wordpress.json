@@ -1,45 +1,45 @@
 
 {
-  "title": "Professional WordPress & WooCommerce Development",
-  "subtitle": "Creating custom WordPress sites and WooCommerce online stores with unique design and optimal performance",
-  "wordpressAndWoocommerce": "WordPress & WooCommerce",
-  "wpServices": "WordPress Services",
-  "ourServices": "Our Services",
-  "servicesTitle": "WordPress & WooCommerce Development Services",
-  "servicesDescription": "We offer a comprehensive range of WordPress and WooCommerce specialized services to grow your online business",
-  "benefits": "Benefits",
-  "benefitsTitle": "Why WordPress & WooCommerce?",
-  "benefitsDescription": "WordPress and WooCommerce offer numerous advantages for online businesses, making them an ideal choice",
-  "pricing": "Pricing",
-  "pricingTitle": "WordPress Website Design Plans",
-  "pricingDescription": "Various WordPress website design plans tailored to the needs and budget of different businesses",
-  "faq": "FAQ",
-  "faqTitle": "Frequently Asked Questions",
-  "faqDescription": "Answers to common questions about WordPress and WooCommerce website design services",
-  "portfolio": "Portfolio",
-  "portfolioTitle": "Successful WordPress & WooCommerce Projects",
-  "portfolioDescription": "A look at some of the outstanding WordPress and WooCommerce projects designed and developed by our team",
-  "ctaTitle": "Ready to Start Your WordPress Project?",
-  "ctaDescription": "Contact us for a free consultation and more information about WordPress website design services",
-  "specialOffer": "Special Offer",
-  "orderPlan": "Order Plan",
-  "themeCustomization": "Theme Customization",
-  "maintenanceSupport": "Maintenance & Support",
-  "seoOptimization": "SEO Optimization",
-  "contentCreation": "Content Creation",
-  "wordpressServices": "WordPress Services",
-  "customThemes": "Custom WordPress themes design and development",
-  "pluginDevelopment": "Custom plugin development and integration",
-  "performanceOptimization": "Performance optimization and speed improvements",
-  "security": "Security hardening and maintenance",
-  "woocommerceServices": "WooCommerce Services",
-  "ecommerceSetup": "Complete e-commerce store setup and configuration",
-  "paymentIntegration": "Payment gateway integration (Stripe, PayPal, etc.)",
-  "inventoryManagement": "Inventory and product management integration",
-  "taxShipping": "Tax and shipping configuration",
+  "title": "خدمات تطوير مواقع ووردبريس",
+  "subtitle": "حلول مخصصة لمواقع ووردبريس تجمع بين الأداء العالي وسهولة الاستخدام",
+  "description": "نقدم خدمات شاملة لتطوير مواقع ووردبريس من التصميم المخصص إلى البرمجة المتقدمة وتحسين الأداء.",
+  "contentCreation": "إنشاء المحتوى",
+  "technicalOptimization": "التحسين التقني",
+  "wordpressAndWoocommerce": "ووردبريس و ووكومرس",
+  "woocommerceTitle": "متاجر ووكومرس",
+  "woocommerceDescription": "إنشاء متاجر إلكترونية احترافية مع ووكومرس",
   "cta": {
-    "title": "Ready to Launch Your WordPress Site?",
-    "description": "Get a free consultation and quote for your WordPress project",
-    "button": "Get Free Consultation"
+    "title": "هل أنت جاهز لبدء مشروع ووردبريس الخاص بك؟",
+    "description": "اتصل بنا للحصول على استشارة مجانية ومعلومات أكثر حول خدمات تصميم مواقع ووردبريس"
+  },
+  "benefits": {
+    "title": "مميزات مواقع ووردبريس لدينا",
+    "subtitle": "نحن نصمم مواقع ووردبريس توفر تجربة مستخدم ممتازة وأداء عالي",
+    "items": [
+      {
+        "title": "سهولة الإدارة",
+        "description": "واجهة سهلة الاستخدام تمكنك من تحديث المحتوى بنفسك"
+      },
+      {
+        "title": "متوافق مع SEO",
+        "description": "مواقع مُحسّنة لمحركات البحث تساعد في تحسين ظهورك على الإنترنت"
+      },
+      {
+        "title": "متجاوب مع الأجهزة المحمولة",
+        "description": "تصميم يعمل بشكل مثالي على جميع الأجهزة والشاشات"
+      },
+      {
+        "title": "أمان عالي",
+        "description": "حماية متقدمة ضد التهديدات الأمنية وعمليات الاختراق"
+      },
+      {
+        "title": "سرعة تحميل عالية",
+        "description": "مواقع سريعة التحميل توفر تجربة مستخدم أفضل"
+      },
+      {
+        "title": "قابلية التوسع",
+        "description": "إمكانية إضافة ميزات جديدة بسهولة مع نمو عملك"
+      }
+    ]
   }
 }

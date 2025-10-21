@@ -1,7 +1,7 @@
 {
-  "title": "Page Not Found",
-  "subtitle": "Sorry, the page you are looking for does not exist.",
+  "title": "صفحة غير موجودة",
+  "subtitle": "عذرًا، الصفحة التي تبحث عنها غير موجودة.",
   "errorNumber": "404",
-  "backHome": "Back to Home",
-  "backPrevious": "Back to Previous Page"
+  "backHome": "العودة إلى الصفحة الرئيسية",
+  "backPrevious": "العودة إلى الصفحة السابقة"
 }

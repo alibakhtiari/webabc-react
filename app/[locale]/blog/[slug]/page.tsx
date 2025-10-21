@@ -1,4 +1,6 @@
-import BlogPostClient from '@/components/BlogPostClient';
+import React from 'react';
+import BlogPostUI from '@/components/BlogPostUI';
+import type { Metadata } from 'next';
 
 interface BlogPostPageProps {
   params: Promise<{
@@ -7,14 +9,9 @@ interface BlogPostPageProps {
   }>;
 }
 
-export default async function BlogPostRoute(props: BlogPostPageProps) {
-  const { locale, slug } = await props.params;
-  return <BlogPostClient slug={slug} />;
-}
+export async function generateMetadata({ params }: BlogPostPageProps): Promise<Metadata> {
+  const { locale, slug } = await params;
 
-// Generate metadata for blog posts
-export async function generateMetadata(props: BlogPostPageProps) {
-  const { locale, slug } = await props.params;
   try {
     // In a real app, you'd fetch the blog post data based on slug and locale
     // For now, we'll use placeholder metadata
@@ -59,6 +56,12 @@ export async function generateMetadata(props: BlogPostPageProps) {
       description: 'The requested blog post could not be found.',
     };
   }
+}
+
+export default async function BlogPostRoute({ params }: BlogPostPageProps) {
+  const { locale, slug } = await params;
+
+  return <BlogPostUI locale={locale} slug={slug} />;
 }
 
 // Generate static params for all blog posts (for SSG)

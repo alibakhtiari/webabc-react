@@ -1,21 +1,26 @@
-import BlogClient from '@/components/BlogClient';
+import React from 'react';
+import { getTranslatedString } from '@/lib/translationUtils';
+import BlogUI from '@/components/BlogUI';
+import type { Metadata } from 'next';
 
-export default function BlogRoute() {
-  return <BlogClient />;
-}
+type BlogPageProps = {
+  params: Promise<{ locale: string }>;
+};
 
-// Generate metadata for blog listing page
-export async function generateMetadata(props: { params: Promise<{ locale: string }> }) {
-  const { locale } = await props.params;
-  const title = locale === 'fa' ? 'وبلاگ وب‌ای‌بی‌سی' :
-                locale === 'ar' ? 'مدونة WebABC' : 'WebABC Blog';
+export async function generateMetadata({ params }: BlogPageProps): Promise<Metadata> {
+  const { locale } = await params;
+  const localeTyped = locale as 'en' | 'fa' | 'ar'; // Type assertion based on dynamic route
 
-  const description = locale === 'fa' ? 'مقاله های تخصصی و راهنمایی های عملی در زمینه بازاریابی دیجیتال، طراحی وبسایت و sئو' :
-                     locale === 'ar' ? 'مقالات متخصصة ونصائح عملية في مجال التسويق الرقمي وتصميم المواقع' :
-                     'Expert articles and practical guides in digital marketing, web design, and SEO';
+  const title = getTranslatedString('blog.title', localeTyped, {
+    fallback: 'Blog'
+  });
+
+  const description = getTranslatedString('blog.description', localeTyped, {
+    fallback: 'Latest articles and insights'
+  });
 
   return {
-    title,
+    title: `${title} | WebABC`,
     description,
     alternates: {
       canonical: '/blog',
@@ -26,4 +31,10 @@ export async function generateMetadata(props: { params: Promise<{ locale: string
       },
     },
   };
+}
+
+export default async function BlogRoute({ params }: BlogPageProps) {
+  const { locale } = await params;
+
+  return <BlogUI locale={locale} />;
 }

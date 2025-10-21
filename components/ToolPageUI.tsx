@@ -1,15 +1,14 @@
 'use client';
 
 import React from 'react';
-import Footer from '@/components/Footer';
-import Breadcrumb from '@/components/Breadcrumb';
 import { useLanguage } from '@/contexts/LanguageContext';
 
-interface ToolPageClientProps {
+type ToolPageUIProps = {
+  locale: string;
   tool: string;
-}
+};
 
-export default function ToolPageClient({ tool }: ToolPageClientProps) {
+export default function ToolPageUI({ locale, tool }: ToolPageUIProps) {
   const { language, languageMeta, t } = useLanguage();
 
   // Map tool slugs to tool data
@@ -27,7 +26,6 @@ export default function ToolPageClient({ tool }: ToolPageClientProps) {
 
   return (
     <main className={`min-h-screen ${languageMeta.fontFamily}`}>
-      <Breadcrumb />
       <section className="py-20">
         <div className="container mx-auto px-4 md:px-6 max-w-4xl">
           <div className="text-center mb-12">
@@ -43,7 +41,6 @@ export default function ToolPageClient({ tool }: ToolPageClientProps) {
           </div>
         </div>
       </section>
-      <Footer />
     </main>
   );
 }

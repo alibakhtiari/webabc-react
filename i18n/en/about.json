@@ -1,14 +1,14 @@
 
 {
-  "title": "About WebABC",
-  "subtitle": "Leading in Digital Marketing and Web Development with over a decade of successful experience",
-  "mission": "Our Mission",
-  "missionText": "At WebABC, we guide businesses through their digital transformation journey with our expert team and up-to-date knowledge. Our main goal is to create lasting value for our clients through innovative and results-oriented solutions.",
-  "team": "Our Team",
-  "ourTeam": "Our Team",
-  "yearsExperience": "Years of Experience",
-  "successfulProjects": "Successful Projects",
-  "clientSatisfaction": "Client Satisfaction",
+  "title": "عن ويب اِي‌بی‌سی",
+  "subtitle": "الريادة في التسويق الرقمي وتطوير الويب مع أكثر من عقد من الخبرة الناجحة",
+  "mission": "مهمتنا",
+  "missionText": "في ويب اِي‌بی‌سی، نهدي الشركات خلال رحلة التحول الرقمي مع فريقنا المتخصص ومعرفتنا المحدثة. هدفنا الرئيسي هو خلق قيمة دائمة لعملائنا من خلال الحلول المبتكرة والموجهة نحو النتائج.",
+  "team": "فريقنا",
+  "ourTeam": "فريقنا",
+  "yearsExperience": "سنوات من الخبرة",
+  "successfulProjects": "مشاريع ناجحة",
+  "clientSatisfaction": "رضا العملاء",
   "stats": {
     "years": {
       "value": "10+"

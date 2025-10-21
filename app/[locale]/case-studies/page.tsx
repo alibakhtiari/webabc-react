@@ -1,21 +1,26 @@
-import CaseStudiesClient from '@/components/CaseStudiesClient';
+import React from 'react';
+import { getTranslatedString } from '@/lib/translationUtils';
+import CaseStudiesUI from '@/components/CaseStudiesUI';
+import type { Metadata } from 'next';
 
-export default function CaseStudies() {
-  return <CaseStudiesClient />;
-}
+type CaseStudiesPageProps = {
+  params: Promise<{ locale: string }>;
+};
 
-// Generate metadata for case studies page
-export async function generateMetadata(props: { params: Promise<{ locale: string }> }) {
-  const { locale } = await props.params;
-  const title = locale === 'fa' ? 'مطالعات موردی - پروژه‌های موفق وب‌ای‌بی‌سی' :
-                locale === 'ar' ? 'دراسات الحالة - مشاريع WebABC الناجحة' : 'Case Studies - WebABC Success Projects';
+export async function generateMetadata({ params }: CaseStudiesPageProps): Promise<Metadata> {
+  const { locale } = await params;
+  const localeTyped = locale as 'en' | 'fa' | 'ar'; // Type assertion based on dynamic route
 
-  const description = locale === 'fa' ? 'بررسی پروژه‌های موفق مشتریان وب‌ای‌بی‌سی در زمینه طراحی سایت، بازاریابی دیجیتال و بهینه‌سازی موتورهای جستجو' :
-                     locale === 'ar' ? 'مراجعة مشاريع العملاء الناجحة في WebABC في مجال تصميم المواقع و التسويق الرقمي و تحسين محركات البحث' :
-                     'Review successful client projects at WebABC in web design, digital marketing, and SEO';
+  const title = getTranslatedString('caseStudies.title', localeTyped, {
+    fallback: 'Case Studies'
+  });
+
+  const description = getTranslatedString('caseStudies.description', localeTyped, {
+    fallback: 'Explore our successful client projects and implementation results'
+  });
 
   return {
-    title,
+    title: `${title} | WebABC`,
     description,
     alternates: {
       canonical: '/case-studies',
@@ -26,4 +31,10 @@ export async function generateMetadata(props: { params: Promise<{ locale: string
       },
     },
   };
+}
+
+export default async function CaseStudies({ params }: CaseStudiesPageProps) {
+  const { locale } = await params;
+
+  return <CaseStudiesUI locale={locale} />;
 }

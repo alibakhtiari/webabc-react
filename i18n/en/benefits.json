@@ -1,40 +1,40 @@
 
 {
-  "sectionTag": "Why Work With Us",
+  "sectionTag": "مزايا العمل معنا",
   "sectionTitle": {
-    "prefix": "Why Choose ",
-    "highlight": "WebABC",
-    "suffix": "?"
+    "prefix": "لماذا تختار ",
+    "highlight": "ويب إيه بي سي",
+    "suffix": "؟"
   },
-  "sectionDescription": "We focus on tangible results and proven strategies to help your business grow in today's digital world.",
+  "sectionDescription": "نحن نركز على النتائج الملموسة والاستراتيجيات المثبتة لمساعدة عملك على النمو في عالم اليوم الرقمي.",
   "brandCredibility": {
-    "title": "Increase Brand Credibility",
-    "description": "Boost your brand's credibility with a strong presence in search results."
+    "title": "زيادة مصداقية العلامة التجارية",
+    "description": "عزز مصداقية علامتك التجارية من خلال وجود قوي في نتائج البحث."
   },
   "increaseSales": {
-    "title": "Increase Sales and Revenue",
-    "description": "Attract targeted traffic to improve conversion rates and sales."
+    "title": "زيادة المبيعات والإيرادات",
+    "description": "جذب حركة مرور مستهدفة لتحسين معدلات التحويل والمبيعات."
   },
   "reduceCosts": {
-    "title": "Reduce Advertising Costs",
-    "description": "Lower your pay-per-click advertising costs by improving organic rankings."
+    "title": "خفض تكاليف الإعلان",
+    "description": "خفض تكاليف إعلانات النقر من خلال تحسين التصنيفات العضوية."
   },
   "competitiveAdvantage": {
-    "title": "Gain Competitive Advantage",
-    "description": "Get ahead of your competitors with advanced SEO strategies."
+    "title": "الحصول على ميزة تنافسية",
+    "description": "تفوق على منافسيك باستراتيجيات تحسين محركات البحث المتقدمة."
   },
-  "guaranteeTag": "Results Guaranteed",
+  "guaranteeTag": "النتائج مضمونة",
   "guaranteeTitle": {
-    "prefix": "Tangible Results with ",
-    "highlight": "Proven Methods"
+    "prefix": "نتائج ملموسة بأساليب ",
+    "highlight": "مثبتة"
   },
-  "guaranteeDescription": "We believe that SEO is an ongoing process. With careful planning and sound strategies, we bring long-term and sustainable results to your business.",
+  "guaranteeDescription": "نؤمن بأن تحسين محركات البحث هو عملية مستمرة. من خلال التخطيط الدقيق والاستراتيجيات السليمة، نقدم نتائج طويلة الأمد ومستدامة لعملك.",
   "guaranteeFeatures": [
-    "Monthly reports with precise metrics",
-    "Complete transparency throughout the collaboration",
-    "Guaranteed improvement in target keyword rankings",
-    "Flexible contracts with no long-term commitment"
+    "تقارير شهرية مع مقاييس دقيقة",
+    "شفافية كاملة طوال فترة التعاون",
+    "تحسين مضمون في تصنيفات الكلمات الرئيسية المستهدفة",
+    "عقود مرنة دون التزام طويل الأمد"
   ],
-  "ctaButton": "Get Free Consultation",
-  "imageAlt": "SEO Results Image"
+  "ctaButton": "احصل على استشارة مجانية",
+  "imageAlt": "صورة نتائج تحسين محركات البحث"
 }

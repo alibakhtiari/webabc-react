@@ -1,16 +1,17 @@
 'use client';
 
 import React from 'react';
-import Footer from '@/components/Footer';
-import Breadcrumb from '@/components/Breadcrumb';
 import { useLanguage } from '@/contexts/LanguageContext';
 
-export default function ToolsClient() {
+type ToolsUIProps = {
+  locale: string;
+};
+
+export default function ToolsUI({ locale }: ToolsUIProps) {
   const { language, languageMeta, t } = useLanguage();
 
   return (
     <main className={`min-h-screen ${languageMeta.fontFamily}`}>
-      <Breadcrumb />
       <section className="py-20">
         <div className="container mx-auto px-4 md:px-6">
           <div className="text-center mb-12">
@@ -40,7 +41,6 @@ export default function ToolsClient() {
           </div>
         </div>
       </section>
-      <Footer />
     </main>
   );
 }

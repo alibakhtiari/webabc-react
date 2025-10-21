@@ -1,21 +1,26 @@
-import WebDevelopmentServicesClient from '@/components/WebDevelopmentServicesClient';
+import React from 'react';
+import { getTranslatedString } from '@/lib/translationUtils';
+import WebDevServicesUI from '@/components/WebDevServicesUI';
+import type { Metadata } from 'next';
 
-export default function WebDevelopmentServices() {
-  return <WebDevelopmentServicesClient />;
-}
+type WebDevServicesPageProps = {
+  params: Promise<{ locale: string }>;
+};
 
-// Generate metadata for web development services page
-export async function generateMetadata(props: { params: Promise<{ locale: string }> }) {
-  const { locale } = await props.params;
-  const title = locale === 'fa' ? 'خدمات توسعه وب - Webbookir' :
-                locale === 'ar' ? 'خدمات تطوير المواقع - Webbookir' : 'Web Development Services - WebABC';
+export async function generateMetadata({ params }: WebDevServicesPageProps): Promise<Metadata> {
+  const { locale } = await params;
+  const localeTyped = locale as 'en' | 'fa' | 'ar'; // Type assertion based on dynamic route
 
-  const description = locale === 'fa' ? 'خدمات حرفه‌ای توسعه وب شامل طراحی سایت سفارشی، راه‌اندازی فروشگاه آنلاین، سیستم‌های مدیریت محتوا و بهینه‌سازی عملکرد' :
-                     locale === 'ar' ? 'خدمات تطوير مواقع الويب المهنية بما في ذلك تصميم المواقع المخصصة، إنشاء المتاجر الإلكترونية، أنظمة إدارة المحتوى وتحسين الأداء' :
-                     'Professional web development services including custom website design, e-commerce setup, CMS systems, and performance optimization';
+  const title = getTranslatedString('webDevServices.title', localeTyped, {
+    fallback: 'Web Development Services'
+  });
+
+  const description = getTranslatedString('webDevServices.description', localeTyped, {
+    fallback: 'Professional web development services including custom website design, e-commerce setup, CMS systems, and performance optimization'
+  });
 
   return {
-    title,
+    title: `${title} | WebABC`,
     description,
     alternates: {
       canonical: '/web-development-services',
@@ -26,4 +31,10 @@ export async function generateMetadata(props: { params: Promise<{ locale: string
       },
     },
   };
+}
+
+export default async function WebDevelopmentServices({ params }: WebDevServicesPageProps) {
+  const { locale } = await params;
+
+  return <WebDevServicesUI locale={locale} />;
 }

@@ -1,39 +1,39 @@
 {
-  "title": "Service Areas",
-  "subtitle": "Professional Web Design & SEO Services Across the Region",
-  "description": "WebABC provides expert web design, development, and SEO services to businesses across multiple locations. Our team delivers customized digital solutions tailored to your local market.",
-  "ctaTitle": "Ready to Grow Your Business?",
-  "ctaDescription": "Contact us today for a free consultation and discover how we can help your business succeed online.",
-  "ctaButton": "Get Free Consultation",
-  "locationTitle": "We Serve",
-  "whyChooseUs": "Why Choose WebABC?",
-  "localExpertise": "Local Market Expertise",
-  "localExpertiseDesc": "We understand the unique challenges and opportunities in each market we serve",
-  "provenResults": "Proven Results",
-  "provenResultsDesc": "Track record of successful projects across different regions",
-  "multilingualSupport": "Multilingual Support",
-  "multilingualSupportDesc": "Communication in your preferred language - English, Arabic, and Persian",
+  "title": "مناطق الخدمة",
+  "subtitle": "خدمات تصميم الويب وتحسين محركات البحث الاحترافية في جميع أنحاء المنطقة",
+  "description": "توفر WebABC خدمات تصميم الويب والتطوير وتحسين محركات البحث للشركات في مواقع متعددة. يقدم فريقنا حلولاً رقمية مخصصة مصممة خصيصاً لسوقك المحلي.",
+  "ctaTitle": "هل أنت مستعد لتنمية عملك؟",
+  "ctaDescription": "اتصل بنا اليوم للحصول على استشارة مجانية واكتشف كيف يمكننا مساعدة عملك على النجاح عبر الإنترنت.",
+  "ctaButton": "احصل على استشارة مجانية",
+  "locationTitle": "نحن نخدم",
+  "whyChooseUs": "لماذا تختار WebABC؟",
+  "localExpertise": "خبرة في السوق المحلي",
+  "localExpertiseDesc": "نحن نفهم التحديات والفرص الفريدة في كل سوق نخدمه",
+  "provenResults": "نتائج مثبتة",
+  "provenResultsDesc": "سجل حافل من المشاريع الناجحة عبر مناطق مختلفة",
+  "multilingualSupport": "دعم متعدد اللغات",
+  "multilingualSupportDesc": "التواصل بلغتك المفضلة - الإنجليزية والعربية والفارسية",
   "locations": [
     {
-      "name": "Muscat",
+      "name": "مسقط",
       "slug": "muscat",
-      "country": "Oman",
-      "description": "Providing cutting-edge web design and SEO services to businesses in Muscat. We help Omani companies establish a strong online presence and reach their target audience effectively.",
-      "longDescription": "As Muscat's premier web design and SEO agency, we specialize in helping local businesses dominate the digital landscape. Our team understands the unique characteristics of the Omani market and creates tailored solutions that resonate with your target audience.",
+      "country": "عمان",
+      "description": "نقدم خدمات تصميم الويب وتحسين محركات البحث المتطورة للشركات في مسقط. نساعد الشركات العمانية على إنشاء حضور قوي على الإنترنت والوصول إلى جمهورها المستهدف بفعالية.",
+      "longDescription": "باعتبارنا وكالة تصميم الويب وتحسين محركات البحث الرائدة في مسقط، نحن متخصصون في مساعدة الشركات المحلية على السيطرة على المشهد الرقمي. يفهم فريقنا الخصائص الفريدة للسوق العماني ويخلق حلولاً مخصصة تتردد صداها مع جمهورك المستهدف.",
       "services": [
-        "Web Design & Development",
-        "SEO Services",
-        "E-commerce Solutions",
-        "Digital Marketing",
-        "WordPress Development"
+        "تصميم وتطوير المواقع",
+        "خدمات تحسين محركات البحث",
+        "حلول التجارة الإلكترونية",
+        "التسويق الرقمي",
+        "تطوير ووردبريس"
       ],
       "image": "/images/locations/muscat.jpg",
       "benefits": [
-        "Local market expertise in Muscat",
-        "Arabic & English language support",
-        "Mobile-first responsive designs",
-        "Fast loading times optimized for Oman",
-        "Ongoing support and maintenance"
+        "خبرة السوق المحلي في مسقط",
+        "دعم اللغة العربية والإنجليزية",
+        "تصاميم سريعة الاستجابة للموبايل",
+        "سرعة تحميل محسّنة لعمان",
+        "الدعم والصيانة المستمرة"
       ],
       "stats": {
         "projects": "50+",
@@ -42,25 +42,25 @@
       }
     },
     {
-      "name": "Dubai",
+      "name": "دبي",
       "slug": "dubai",
-      "country": "UAE",
-      "description": "Delivering premium digital solutions to businesses in Dubai. Our services help UAE-based companies compete in the dynamic Dubai market with innovative web solutions.",
-      "longDescription": "Dubai's fast-paced business environment demands exceptional digital presence. We create stunning websites and implement powerful SEO strategies that help your business stand out in one of the world's most competitive markets.",
+      "country": "الإمارات العربية المتحدة",
+      "description": "تقديم حلول رقمية متميزة للشركات في دبي. تساعد خدماتنا الشركات المقيمة في الإمارات على المنافسة في سوق دبي الديناميكي بحلول ويب مبتكرة.",
+      "longDescription": "تتطلب بيئة الأعمال السريعة في دبي حضورًا رقميًا استثنائيًا. نحن ننشئ مواقع ويب مذهلة وننفذ استراتيجيات تحسين محركات بحث قوية تساعد عملك على التميز في واحدة من أكثر الأسواق تنافسية في العالم.",
       "services": [
-        "Custom Web Development",
-        "Local SEO",
-        "Mobile App Development",
-        "Brand Strategy",
-        "Content Marketing"
+        "تطوير الويب المخصص",
+        "تحسين محركات البحث المحلية",
+        "تطوير تطبيقات الموبايل",
+        "استراتيجية العلامة التجارية",
+        "تسويق المحتوى"
       ],
       "image": "/images/locations/dubai.jpg",
       "benefits": [
-        "Understanding of UAE business culture",
-        "Multilingual website solutions",
-        "E-commerce expertise for Dubai market",
-        "Results-driven digital strategies",
-        "24/7 customer support"
+        "فهم ثقافة الأعمال في الإمارات",
+        "حلول المواقع متعددة اللغات",
+        "خبرة في التجارة الإلكترونية لسوق دبي",
+        "استراتيجيات رقمية تركز على النتائج",
+        "دعم العملاء 24/7"
       ],
       "stats": {
         "projects": "75+",

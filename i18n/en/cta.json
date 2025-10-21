@@ -1,14 +1,14 @@
 
 {
-  "title": "Ready to take your business to the next level?",
-  "description": "Get a free consultation and receive a custom SEO and web development strategy for your business.",
-  "primaryButton": "Get Free Consultation",
-  "secondaryButton": "Contact Us",
-  "contactInfo": "Contact Information",
-  "address": "Address",
-  "phone": "Phone",
-  "email": "Email",
-  "addressValue": "989125811880",
-  "phoneValue": "+98 (912) 581-1880",
-  "emailValue": "info@webabc.ir"
+  "title": "هل أنت مستعد للارتقاء بعملك إلى المستوى التالي؟",
+  "description": "احصل على استشارة مجانية واستلم استراتيجية مخصصة لتحسين محركات البحث وتطوير الويب لعملك.",
+  "primaryButton": "احصل على استشارة مجانية",
+  "secondaryButton": "اتصل بنا",
+  "contactInfo": "معلومات الاتصال",
+  "address": "العنوان",
+  "phone": "الهاتف",
+  "email": "البريد الإلكتروني",
+  "addressValue": "١٢٣ الشارع الرئيسي، القاهرة، مصر",
+  "phoneValue": "+20 2 1234 5678",
+  "emailValue": "info@webabc.ir.eg"
 }

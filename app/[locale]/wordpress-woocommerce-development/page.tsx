@@ -1,21 +1,26 @@
-import WordPressWooCommerceClient from '@/components/WordPressWooCommerceClient';
+import React from 'react';
+import { getTranslatedString } from '@/lib/translationUtils';
+import WordPressUI from '@/components/WordPressUI';
+import type { Metadata } from 'next';
 
-export default function WordPressWooCommerceDevelopment() {
-  return <WordPressWooCommerceClient />;
-}
+type WordPressPageProps = {
+  params: Promise<{ locale: string }>;
+};
 
-// Generate metadata for WordPress/WooCommerce development page
-export async function generateMetadata(props: { params: Promise<{ locale: string }> }) {
-  const { locale } = await props.params;
-  const title = locale === 'fa' ? 'توسعه وردپرس و ووکامرس - وب‌ای‌بی‌سی' :
-                locale === 'ar' ? 'تطوير ووردبريس و ووكوميرس - WebABC' : 'WordPress & WooCommerce Development - WebABC';
+export async function generateMetadata({ params }: WordPressPageProps): Promise<Metadata> {
+  const { locale } = await params;
+  const localeTyped = locale as 'en' | 'fa' | 'ar'; // Type assertion based on dynamic route
 
-  const description = locale === 'fa' ? 'خدمات حرفه‌ای توسعه وردپرس و فروشگاه‌های ووکامرس شامل طراحی قالب سفارشی، افزونه‌ها، بهینه‌سازی عملکرد و امنیت' :
-                     locale === 'ar' ? 'خدمات تطوير ووردريس ومتاجر ووكوميريس المهنية بما في ذلك تصميم القوالب المخصصة والإضافات وتحسين الأداء والأمان' :
-                     'Professional WordPress and WooCommerce development services including custom themes, plugins, performance optimization, and security';
+  const title = getTranslatedString('wordpress.title', localeTyped, {
+    fallback: 'WordPress & WooCommerce Development'
+  });
+
+  const description = getTranslatedString('wordpress.description', localeTyped, {
+    fallback: 'Professional WordPress and WooCommerce development services including custom themes, plugins, performance optimization, and security'
+  });
 
   return {
-    title,
+    title: `${title} | WebABC`,
     description,
     alternates: {
       canonical: '/wordpress-woocommerce-development',
@@ -26,4 +31,10 @@ export async function generateMetadata(props: { params: Promise<{ locale: string
       },
     },
   };
+}
+
+export default async function WordPressWooCommerceDevelopment({ params }: WordPressPageProps) {
+  const { locale } = await params;
+
+  return <WordPressUI locale={locale} />;
 }
